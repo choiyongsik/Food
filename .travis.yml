@@ -6,18 +6,18 @@ services:
   - docker
 
 before_install:
-  - docker build -t choiyongsik/food -f ./frontend/Dockerfile.dev ./frontend
+  - docker build -t googoo99/food -f ./frontend/Dockerfile.dev ./frontend
 
 script:
-  - docker run -e CI=true choiyongsik/food npm run test
+  - docker run -e CI=true googoo99/food npm run test
 
 after_success:
-  - docker build -t choiyongsik/docker-frontend ./frontend
-  - docker build -t choiyongsik/docker-backend ./backend 
-  - docker build -t choiyongsik/docker-nginx ./nginx
+  - docker build -t googoo99/docker-frontend ./frontend
+  - docker build -t googoo99/docker-backend ./backend 
+  - docker build -t googoo99/docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push choiyongsik/docker-frontend
-  - docker push choiyongsik/docker-backend
-  - docker push choiyongsik/docker-nginx
+  - docker push googoo99/docker-frontend
+  - docker push googoo99/docker-backend
+  - docker push googoo99/docker-nginx
