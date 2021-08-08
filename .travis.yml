@@ -13,7 +13,7 @@ script:
 
 after_success:
   - docker build -t googoo99/docker-frontend ./frontend
-  - docker build -t googoo99/docker-backend ./backend 
+  - docker build -t googoo99/docker-backend ./backend
   - docker build -t googoo99/docker-nginx ./nginx
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
@@ -24,13 +24,13 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  region: "ap-northeast-2",
+  region: "ap-northeast-2"
   app: "food",
   env: "Food-env",
   bucket_name: elasticbeanstalk-ap-northeast-2-104900351462
   bucket_path: "food",
   on:
-    branch: master
+    branch: main
 
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_ACCESS_KEY
