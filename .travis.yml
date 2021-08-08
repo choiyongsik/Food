@@ -22,18 +22,18 @@ after_success:
   - docker push googoo99/docker-backend
   - docker push googoo99/docker-nginx
 
-  deploy:
-    provider: elasticbeanstalk
-    skip_cleanup: true
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key:
-      secure: $AWS_SECRET_KEY
-    region: "ap-northeast-2"
-    app: "food"
-    env: "food-env"
-    bucket_name: "elasticbeanstalk-ap-northeast-2-104900351462"
-    on:
-      branch: master
+deploy:
+  provider: elasticbeanstalk
+  skip_cleanup: true
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_ACCESS_KEY
+  region: "ap-northeast-2"
+  app: "food"
+  env: "food-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-104900351462"
+  on:
+    branch: master
 
-  after_deploy:
-    - echo "Elastic Beanstalk 배포 진행중입니다."
+after_deploy:
+  - echo "Elastic Beanstalk 배포 진행중입니다."
