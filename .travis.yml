@@ -24,7 +24,6 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  skip_cleanup: true
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: $AWS_SECRET_ACCESS_KEY
@@ -34,6 +33,3 @@ deploy:
   bucket_name: "elasticbeanstalk-ap-northeast-2-104900351462"
   on:
     branch: main
-
-after_deploy:
-  - echo "Elastic Beanstalk 배포 진행중입니다."
