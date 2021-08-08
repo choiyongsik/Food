@@ -21,3 +21,16 @@ after_success:
   - docker push googoo99/docker-frontend
   - docker push googoo99/docker-backend
   - docker push googoo99/docker-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2",
+  app: "food",
+  env: "Food-env",
+  bucket_name: elasticbeanstalk-ap-northeast-2-104900351462
+  bucket_path: "food",
+  on:
+    branch: master
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY

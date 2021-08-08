@@ -36,12 +36,12 @@ services:
             - ./backend:/app
         networks:
             - default-network
-    # environment: 
-    #   MYSQL_HOST: mysql
-    #   MYSQL_USER: root 
-    #   MYSQL_ROOT_PASSWORD: johnahn777
-    #   MYSQL_DATABASE: myapp
-    #   MYSQL_PORT: 3306   
+     environment:
+       MYSQL_HOST: mysql
+       MYSQL_USER: admin
+       MYSQL_ROOT_PASSWORD: rnrn11!!
+       MYSQL_DATABASE: food
+       MYSQL_PORT: 3306
 
 networks:
     default-network:
