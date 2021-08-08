@@ -24,12 +24,13 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: $AWS_SECRET_ACCESS_KEY
   region: "ap-northeast-2"
   app: "food"
-  env: "food-env"
+  env: "Food-env"
   bucket_name: "elasticbeanstalk-ap-northeast-2-104900351462"
+  bucket_path: "food"
   on:
     branch: main
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
